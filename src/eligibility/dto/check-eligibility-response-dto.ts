@@ -1,5 +1,5 @@
 export class CheckEligibilityResponseDto {
-  elegibility: boolean;
+  elegible: boolean;
   CO2AnnualSavings?: number;
   ineligibilityReasons?: string;
   additionalProperties?: boolean;

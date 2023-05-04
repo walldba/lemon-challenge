@@ -24,7 +24,7 @@ export class EligibilityService {
     );
 
     return {
-      elegibility: isElibilible,
+      elegible: isElibilible,
       CO2AnnualSavings: isElibilible ? kgCO2Saved : undefined,
       ineligibilityReasons: isElibilible
         ? undefined

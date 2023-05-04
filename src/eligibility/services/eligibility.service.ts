@@ -17,7 +17,7 @@ export class EligibilityService {
       checkEligibilityRequestDto.consumptionHistory,
     );
 
-    const isElibility = this.checkEligibility(
+    const isElibilible = this.checkEligibility(
       checkEligibilityRequestDto.connectionType,
       kgCO2Saved,
     );
@@ -25,9 +25,9 @@ export class EligibilityService {
     const ineligibleMessage = 'Your average consumption is not eligible';
 
     return {
-      elegibility: isElibility,
-      CO2AnnualSavings: isElibility ? kgCO2Saved : undefined,
-      ineligibilityReasons: isElibility ? undefined : ineligibleMessage,
+      elegibility: isElibilible,
+      CO2AnnualSavings: isElibilible ? kgCO2Saved : undefined,
+      ineligibilityReasons: isElibilible ? undefined : ineligibleMessage,
     };
   }
 

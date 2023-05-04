@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CheckEligibilityRequestDto } from '../dto/check-eligibility-request-dto';
 import { CheckEligibilityResponseDto } from '../dto/check-eligibility-response-dto';
 import { ConnectionTypeEnum } from '../enums/connection-type-enum';
+import { IneligibilityMessageEnum } from '../enums/inelegible-message-enum';
 
 @Injectable()
 export class EligibilityService {
@@ -22,12 +23,12 @@ export class EligibilityService {
       kgCO2Saved,
     );
 
-    const ineligibleMessage = 'Your average consumption is not eligible';
-
     return {
       elegibility: isElibilible,
       CO2AnnualSavings: isElibilible ? kgCO2Saved : undefined,
-      ineligibilityReasons: isElibilible ? undefined : ineligibleMessage,
+      ineligibilityReasons: isElibilible
+        ? undefined
+        : IneligibilityMessageEnum.AVERAGE_CONSUMPTION,
     };
   }
 

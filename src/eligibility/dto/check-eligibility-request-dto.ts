@@ -12,13 +12,14 @@ import {
 import { TariffModalitiesEnum } from '../enums/ tariff-modalities-enum';
 import { ConnectionTypeEnum } from '../enums/connection-type-enum';
 import { ConsumptionClassesEnum } from '../enums/consumption-classes-enum';
+import { IneligibilityMessageEnum } from '../enums/inelegible-message-enum';
 import { TariffModalitiesNotElegibility } from '../validators/ tariff-modalities-validator';
 import { ConsumptionClassesNotElegibility } from '../validators/consumption-classes-validator';
 
 export class CheckEligibilityRequestDto {
   @IsString()
   @Matches(/^(\d{11}|\d{14})$/, {
-    message: 'Document number must have 11 or 14 characters',
+    message: IneligibilityMessageEnum.INVALID_DOCUMENT,
   })
   documentNumber: string;
 
@@ -30,7 +31,7 @@ export class CheckEligibilityRequestDto {
     ConsumptionClassesNotElegibility,
     [ConsumptionClassesEnum.RURAL, ConsumptionClassesEnum.PODERPUBLICO],
     {
-      message: 'Consumption class not accepted',
+      message: IneligibilityMessageEnum.CONSUMPTION_CLASSES_NOT_ELEGIBILITY,
     },
   )
   consumpitionClasses: ConsumptionClassesEnum;
@@ -40,7 +41,7 @@ export class CheckEligibilityRequestDto {
     TariffModalitiesNotElegibility,
     [TariffModalitiesEnum.VERDE, TariffModalitiesEnum.AZUL],
     {
-      message: 'Tariff modality not accepted',
+      message: IneligibilityMessageEnum.TARIFF_MODALITIES_NOT_ELEGIBILITY,
     },
   )
   tariffModalities: TariffModalitiesEnum;

@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "b562345a-2de3-4971-af3f-210a1548e83f",
+		"name": "Elegibility",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3292537"
+	},
+	"item": [
+		{
+			"name": "[POST] Check Elegibility",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"documentNumber\": \"14041737706\",\n    \"connectionType\": \"bifasico\",\n    \"consumpitionClasses\": \"comercial\",\n    \"tariffModalities\": \"convencional\",\n    \"consumptionHistory\": [\n        3878,\n        9760,\n        5976,\n        2797,\n        2481,\n        5731,\n        7538,\n        4392,\n        7859,\n        4160,\n        6941,\n        4597\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/eligibility",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"eligibility"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eligible Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"documentNumber\": \"14041737706\",\n    \"connectionType\": \"bifasico\",\n    \"consumpitionClasses\": \"comercial\",\n    \"tariffModalities\": \"convencional\",\n    \"consumptionHistory\": [\n        3878,\n        9760,\n        5976,\n        2797,\n        2481,\n        5731,\n        7538,\n        4392,\n        7859,\n        4160,\n        6941,\n        4597\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/eligibility",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"eligibility"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Ineligible Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"documentNumber\": \"14041737706\",\n    \"connectionType\": \"bifasico\",\n    \"consumpitionClasses\": \"rural\",\n    \"tariffModalities\": \"verde\",\n    \"consumptionHistory\": [\n        3878,\n        9760,\n        5976,\n        2797,\n        2481,\n        5731,\n        7538,\n        4392,\n        7859,\n        4160,\n        6941,\n        4597\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/eligibility",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"eligibility"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
